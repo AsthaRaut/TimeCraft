@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="top-bar-links">
+      <a href="https://www.casio-intl.com/in/en/support/">Support</a>
+      <a href="https://world.casio.com/">Corporate</a>
+    </div>
+  </div>
+
+
+  <header class="main-header">
+
+    <div class="logo" onclick="location.reload()" style="cursor:pointer;">
+      CASIO
+    </div>
+
+    <nav class="desktop-nav">
+      <span onclick="openMenuWithCategory('watches')">Watches</span>
+      <span onclick="openMenuWithCategory('instruments')">Musical Instruments</span>
+      <span onclick="openMenuWithCategory('calculators')">Calculators</span>
+      <span onclick="openMenuWithCategory('printers')">Printers</span>
+    </nav>
+
+    <div class="header-icons">
+
+      <div class="search-box">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search products..."
+          onkeydown="if(event.key==='Enter') executeSearch()"
+        >
+        <i class="fa-solid fa-magnifying-glass"
+           onclick="executeSearch()"></i>
+      </div>
+
+      <a href="https://www.casio.com/in/favorites/"
+         class="favorites-link">
+        <i class="fa-regular fa-heart"></i>
+      </a>
+
+      <i class="fa-solid fa-bars" id="menuBtn"></i>
+
+    </div>
+
+  </header>
+
+
+  <div class="overlay" id="overlay"></div>
+
+
+  <div class="sidebar" id="sidebar">
+
+    <div class="sidebar-header">
+      <i class="fa-solid fa-xmark" id="closeBtn"></i>
+    </div>
+
+
+    <div id="main-menu-list">
+
+      <div class="menu-item" onclick="showSubMenu('watches')">
+        Watches <i class="fa-solid fa-plus"></i>
+      </div>
+
+      <div class="menu-item" onclick="showSubMenu('instruments')">
+        Electronic Musical Instruments <i class="fa-solid fa-plus"></i>
+      </div>
+
+      <div class="menu-item" onclick="showSubMenu('calculators')">
+        Calculators <i class="fa-solid fa-plus"></i>
+      </div>
+
+      <div class="menu-item" onclick="showSubMenu('printers')">
+        Label Printers & Tapes <i class="fa-solid fa-plus"></i>
+      </div>
+
+      <a href="https://www.casio-intl.com/in/en/support/" class="menu-item">
+        Support
+      </a>
+
+      <a href="https://world.casio.com/" class="menu-item">
+        Corporate
+      </a>
+
+    </div>
+
+
+
+    <div id="watches-submenu" class="submenu">
+
+      <div class="back-btn" onclick="hideSubMenu()">
+        <i class="fa-solid fa-chevron-left"></i> Watches
+      </div>
+
+      <div class="menu-item" onclick="showGallery('gshock-gallery')">
+        G-SHOCK <i class="fa-solid fa-chevron-right"></i>
+      </div>
+
+      <div class="menu-item" onclick="showGallery('vintage-gallery')">
+        CASIO VINTAGE <i class="fa-solid fa-chevron-right"></i>
+      </div>
+
+      <div class="menu-item" onclick="showGallery('edifice-gallery')">
+        CASIO EDIFICE <i class="fa-solid fa-chevron-right"></i>
+      </div>
+
+    </div>
+
+
+
+    <div id="instruments-submenu" class="submenu">
+
+      <div class="back-btn" onclick="hideSubMenu()">
+        <i class="fa-solid fa-chevron-left"></i> Musical Instruments
+      </div>
+
+      <div class="menu-item" onclick="showGallery('keyboard-gallery')">
+        Keyboard & Pianos
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+
+    </div>
+
+
+
+    <div id="calculators-submenu" class="submenu">
+
+      <div class="back-btn" onclick="hideSubMenu()">
+        <i class="fa-solid fa-chevron-left"></i> Calculators
+      </div>
+
+      <div class="menu-item"
+           onclick="showGallery('calculators-gallery')">
+
+        Scientific Calculators
+        <i class="fa-solid fa-chevron-right"></i>
+
+      </div>
+
+    </div>
+
+
+
+    <div id="printers-submenu" class="submenu">
+
+      <div class="back-btn" onclick="hideSubMenu()">
+        <i class="fa-solid fa-chevron-left"></i> Printers & Tapes
+      </div>
+
+      <div class="menu-item">
+        Label Printers
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+
+    </div>
+
+
+
+    <div id="gshock-gallery" class="submenu gallery">
+
+      <div class="back-btn"
+           onclick="showSubMenu('watches')">
+
+        <i class="fa-solid fa-chevron-left"></i>
+        G-SHOCK
+
+      </div>
+
+      <div class="product-grid">
+
+        <a href="#" class="product-card">
+          <img src="https://m.media-amazon.com/images/I/616L44Z5FIL._AC_UY1000_.jpg">
+          <p>5600 SERIES</p>
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <div id="vintage-gallery" class="submenu gallery">
+
+      <div class="back-btn"
+           onclick="showSubMenu('watches')">
+
+        <i class="fa-solid fa-chevron-left"></i>
+        CASIO VINTAGE
+
+      </div>
+
+      <div class="product-grid">
+
+        <a href="#" class="product-card">
+          <img src="https://www.casio.com/content/dam/casio/product-info/locales/europe/en-gb/timepiece/product/watch/A/AQ/AQ2/aq-230egl-9a/assets/AQ-230EGL-9A.png.transform/product-panel/image.png">
+          <p>Vintage Series</p>
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <div id="edifice-gallery" class="submenu gallery">
+
+      <div class="back-btn"
+           onclick="showSubMenu('watches')">
+
+        <i class="fa-solid fa-chevron-left"></i>
+        CASIO EDIFICE
+
+      </div>
+
+      <div class="product-grid">
+
+        <a href="#" class="product-card">
+          <img src="https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/E/EF/EFV/efv-160d-2av/assets/EFV-160D-2AV.png.transform/color-variation/image.png">
+          <p>Edifice Series</p>
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <div id="keyboard-gallery" class="submenu gallery">
+
+      <div class="back-btn"
+           onclick="showSubMenu('instruments')">
+
+        <i class="fa-solid fa-chevron-left"></i>
+        Keyboards & Pianos
+
+      </div>
+
+      <div class="product-grid">
+
+        <a href="#" class="product-card">
+          <img src="https://www.casio.com/content/dam/casio/product-info/locales/in/en/emi/product/C/CT/CTX/CT-X9000IN/assets/CT-X9000IN_F.jpg.transform/main-visual-sp/image.jpg">
+          <p>CTX SERIES</p>
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <div id="calculators-gallery"
+         class="submenu gallery">
+
+      <div class="back-btn"
+           onclick="showSubMenu('calculators')">
+
+        <i class="fa-solid fa-chevron-left"></i>
+        Calculators
+
+      </div>
+
+      <div class="product-grid">
+
+        <a href="#" class="product-card">
+          <img src="https://m.media-amazon.com/images/I/61IujYL0JTL.jpg">
+          <p>Scientific Series</p>
+        </a>
+
+        <a href="#" class="product-card">
+          <img src="https://tiimg.tistatic.com/fp/1/007/757/-general-purpose-mathematical-accurate-calculations-black-casio-portable-electronic-calculator--169.jpg">
+          <p>Graphing Series</p>
+        </a>
+
+        <a href="#" class="product-card">
+          <img src="https://casio.ledudu.com/images/calculs/casio/machines/bc300.jpg">
+          <p>Financial Series</p>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <section>
+
+       <iframe width="100%" height="900" src="https://www.youtube.com/embed/3Tyx6E7d4E4?si=yPtf9ELo8qWSyz3H" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+       <a href="https://gshock.casio.com/in/products/analog-digital/gbm-2100/?_gl=1%2a15kgvwm%2a_ga%2aMTI3MTU0MDM0Mi4xNzc4MjIxMzI3%2a_ga_DGD0L7D7HE%2aczE3Nzg4MjE2NTAkbzgkZzEkdDE3Nzg4MjE2NTAkajYwJGwwJGgw">
+       <img class="G-shock" src="https://i.ytimg.com/vi/3Tyx6E7d4E4/sddefault.jpg" alt="G-Shock">
+       </a>
+       <a href="https://www.casio.com/in/watches/new-drops/">
+       <img class="G-shock" src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/image_1194726747_cop.casiocoreimg.jpeg/1777262280701/1920x816-gs-camo.jpeg" alt="G-Shock">
+       </a>
+       <a href="https://www.casio.com/in/watches/new-drops/">
+       <img class="G-shock" src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/teaser_2040248490.casiocoreimg.jpeg/1772099985715/1920x1080-vintage-aq-240.jpeg" alt="G-shock">
+       </a>
+       <a href="https://www.casio.com/in/watches/edifice/product.EFB-730D-2BV/">
+       <img class="G-shock" src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/teaser_2044090688.casiocoreimg.jpeg/1777268975894/1920x816-ed.jpeg" alt="G-shock">
+       </a>
+       <a href="https://www.casio.com/in/watches/casio-collection/making-moments-that-matter/">
+       <img class="G-shock" src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/teaser_1324273444_co.casiocoreimg.jpeg/1777262441257/1920x816-casio-m.jpeg" alt="G-shock">
+       </a>
+       <a href="https://gshock.casio.com/in/Iconic-Styles-Ft-Vicky-Kaushal/?_gl=1%2a4j0xob%2a_ga%2aMTI3MTU0MDM0Mi4xNzc4MjIxMzI3%2a_ga_DGD0L7D7HE%2aczE3Nzg4MjE2NTAkbzgkZzEkdDE3Nzg4MjE5MjgkajQ3JGwwJGgw">
+       <img class="G-shock" src="https://media.fashionnetwork.com/cdn-cgi/image/fit=contain,width=1000,height=1000,format=auto/m/1930/3945/8ed7/6455/659e/bf31/6b03/324c/93e7/621e/621e.jpg" alt="G-shock">
+       </a>
+       <a href="https://www.casio.com/in/watches/casio/collection/vintage-new/">
+       <img class="G-shock" src="https://www.casio.com/content/casio/locales/in/en/products/watches/casio/collection/vintage-new/_jcr_content/root/responsivegrid/teaser.casiocoreimg.jpeg/1749441332885/desktop-1920x816-vs.jpeg" alt="g-shock">
+       </a>
+       <a href="https://www.casio.com/in/watches/casio-collection/making-moments-that-matter/">
+       <img class="G-shock" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyK1uqVAHgjcTFwYYZtj7lebvW4yLw4mncAQ&s" alt="g-shock">
+       </a>
+       <a href="https://www.casio.com/in/watches/casio-collection/">
+       <img class="G-shock" src="https://images.openai.com/static-rsc-4/0oGCUa8VXHeaQfxWoeP7W8zHv0opJq_CPdlJ-D0aEs5cGXDIub16qYEQQ_MhNNIFtYyoVUjtr3GPdAoTBvggLCQBxZpXCdRJNODiB1I_UA4lqs0RficwT6nV7yMme5Octrp3IM5zf7fKm21ZSRBGYayV0x1I_S5jh_uX3EFlJfEeOfAJD8pSO4-H53rwG4Bx?purpose=fullsize" alt="g-shock">
+       </a>
+       <a href="https://www.casio.com/in/electronic-musical-instruments/">
+       <img class="G-shock" src="https://microless.com/cdn/products/e872ee49b84b19b7694bf7d5d0a8efa7-hi.jpg" alt="g-shock">
+       </a>
+       <a href="https://www.casio.com/in/scientific-calculators/">
+       <img class="G-shock" src="https://www.casio.com/content/casio/locales/in/en/products/basic-calculators/content/60th/_jcr_content/root/responsivegrid/container_731452050/container/image.casiocoreimg.jpeg/1751011829927/casio-60th-kv-yt-1920x816.jpeg" alt="g-shock">
+       </a>
+      
+   </section>
+
+    <h5 class="heading">NEW DROPS</h5>
+
+    <div class="big_box">
+
+
+        <!-- BOX 1 -->
+        <div class="small_box">
+
+            <p class="img_para">12 digits/ 300 steps</p>
+
+            <button class="heart">♡</button>
+
+            <a href="https://www.casio.com/in/basic-calculators/product.DJ-120DPLUS-PK/">
+
+                <img src="https://cdn3.evostore.io/productimages/vow_api/l/cs61552_01.jpg" alt="">
+
+                <p class="check">CASIO</p>
+
+                <h2>BMS-100D-1AV</h2>
+
+                <p class="mrp">MRP</p>
+
+                <p>₹ 9,995 (incl. of all taxes)</p>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- BOX 2 -->
+        <div class="small_box">
+
+            <p class="img_para">12 digits/ 300 steps</p>
+
+            <button class="heart">♡</button>
+
+            <a href="https://www.casio.com/in/basic-calculators/product.MJ-120DPLUS/">
+
+                <img src="https://target.scene7.com/is/image/Target/GUEST_5ef11674-de8f-4050-89ee-f1a94fd8d185?wid=300&hei=300&fmt=pjpeg" alt="">
+
+                <p class="check">CASIO</p>
+
+                <h2>BMS-100D-7AV</h2>
+
+                <p class="mrp">MRP</p>
+
+                <p>₹ 9,995 (incl. of all taxes)</p>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- BOX 3 -->
+        <div class="small_box">
+
+            <p class="img_para">NEW</p>
+
+            <button class="heart">♡</button>
+
+            <a href="https://www.casio.com/in/watches/casio/product.BMS-100D-1AV/">
+
+                <img src="https://www.casio.com/content/dam/casio/product-info/locales/za/en/timepiece/product/watch/B/bm/bms/bms-100d-1av/assets/BMS-100D-1AV.png.transform/color-variation/image.png" alt="">
+
+                <p class="check">CASIO</p>
+
+                <h2>BMS-100D-8AV</h2>
+
+                <p class="mrp">MRP</p>
+
+                <p>₹ 9,995 (incl. of all taxes)</p>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- BOX 4 -->
+        <div class="small_box">
+
+            <p class="img_para">NEW</p>
+
+            <button class="heart">♡</button>
+
+            <a href="https://www.casio.com/in/watches/casio/product.BMS-100D-7AV/">
+
+                <img src="https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/B/bm/bms/bms-100d-7av/assets/BMS-100D-7AV.png.transform/main-visual-sp/image.png" alt="">
+
+                <p class="check">CASIO</p>
+
+                <h2>BMS-100L-1AV</h2>
+
+                <p class="mrp">MRP</p>
+
+                <p>₹ 8,995 (incl. of all taxes)</p>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- BOX 5 -->
+        <div class="small_box">
+
+            <p class="img_para">NEW</p>
+
+            <button class="heart">♡</button>
+
+            <a href="https://www.casio.com/in/watches/casio/product.BMS-100D-8AV/">
+
+                <img src="https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/B/bm/bms/bms-100d-8av/assets/BMS-100D-8AV.png.transform/color-variation/image.png" alt="">
+
+                <p class="check">CASIO</p>
+
+                <h2>BMS-100L-5AV</h2>
+
+                <p class="mrp">MRP</p>
+
+                <p>₹ 8,995 (incl. of all taxes)</p>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- BOX 6 -->
+        <div class="small_box">
+
+            <p class="img_para">NEW</p>
+
+            <button class="heart">♡</button>
+
+            <a href="https://www.casio.com/in/watches/casio/product.BMS-100L-1AV/">
+
+                <img src="https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/B/bm/bms/bms-100l-1av/assets/BMS-100L-1AV.png.transform/main-visual-sp/image.png" alt="">
+
+                <p class="check">CASIO</p>
+
+                <h2>F-91WS-7A</h2>
+
+                <p class="mrp">MRP</p>
+
+                <p>₹ 4,567 (incl. of all taxes)</p>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- BOX 7 -->
+        <div class="small_box">
+
+            <p class="img_para">NEW</p>
+
+            <button class="heart">♡</button>
+
+            <a href="https://www.casio.com/in/watches/casio/product.BMS-100L-5AV/">
+
+                <img src="https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/B/bm/bms/bms-100l-5av/assets/BMS-100L-5AV.png.transform/main-visual-sp/image.png" alt="">
+
+                <p class="check">CASIO</p>
+
+                <h2>W-218HD-1AV</h2>
+
+                <p class="mrp">MRP</p>
+
+                <p>₹ 5,995 (incl. of all taxes)</p>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- BOX 8 -->`
+        <div class="small_box">
+
+            <p class="img_para">NEW</p>
+
+            <button class="heart">♡</button>
+
+            <a href="https://www.casio.com/in/watches/casio/product.BMS-300D-1AV/">
+
+                <img src="https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/B/bm/bms/bms-100d-1av/assets/BMS-100D-1AV.png" alt="">
+
+                <p class="check">CASIO</p>
+
+                <h2>A168WA-1W</h2>
+
+                <p class="mrp">MRP</p>
+
+                <p>₹ 3,995 (incl. of all taxes)</p>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- BOX 9 -->
+        <div class="small_box">
+
+            <p class="img_para">NEW</p>
+
+            <button class="heart">♡</button>
+
+            <a href="https://www.casio.com/in/watches/casio/product.BMS-300D-2AV/">
+
+                <img src="https://www.casio.com/content/dam/casio/product-info/locales/in/en/timepiece/product/watch/B/bm/bms/bms-300d-2av/assets/BMS-300D-2AV.png.transform/main-visual-sp/image.png" alt="">
+
+                <p class="check">CASIO</p>
+
+                <h2>AE-1500WH-1AV</h2>
+
+                <p class="mrp">MRP</p>
+
+                <p>₹ 4,995 (incl. of all taxes)</p>
+
+            </a>
+
+        </div>
+
+    </div>
+    <hr>
+
+
+
+    <div class="top-btn">
+        <a href="https://www.casio.com/in/watches/new-drops/">
+            
+            <button>VIEW ALL NEW DROPS</button>
+        </a>
+    </div>
+
+
+    <h2 class="title">TOPICS</h2>
+
+      <div class="slider" id="slider">
+
+<!-- 1 - Box -->
+             <a href="https://gshock.casio.com/in/shock-ok-please/?_gl=1%2adi905p%2a_ga%2aNTA3Mzc5OTcuMTc3ODQ3MTc3NQ..%2a_ga_DGD0L7D7HE%2aczE3Nzg3NzQ4OTkkbzEyJGcxJHQxNzc4Nzc2MzYwJGo2MCRsMCRoMA.." target="_blank" class="card">
+
+               <div class="imgBox">
+                 <img src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/container_1790102794/content_panel_list/content_panel_202101_78214453/image.casiocoreimg.jpeg/1750333848279/800x800-tile-.jpeg"
+             alt="watch">
+               </div>
+
+               <div class="content">
+                 <h3>RISE ABOVE THE SHOCKS   </h3>
+                 <p>Iconic styles</p>
+                        </div>
+
+             </a>
+
+<!-- 2 - Box -->
+              <a href="https://gshock.casio.com/in/products/others/dw-5000r/?_gl=1%2a1hkj15w%2a_ga%2aNTA3Mzc5OTcuMTc3ODQ3MTc3NQ..%2a_ga_DGD0L7D7HE%2aczE3Nzg3NzQ4OTkkbzEyJGcxJHQxNzc4Nzc4MTQ2JGozMiRsMCRoMA.." target="_blank" class="card">
+
+               <div class="imgBox">
+                 <img src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/container_1790102794/content_panel_list/content_panel_202101_2134590280/image.casiocoreimg.jpeg/1764848653822/gshock-x-bamford-1080x1080.jpeg"
+             alt="watch">
+               </div>
+
+               <div class="content">
+                 <h3>BAMFORD Collaboration model</h3>
+                 <p>casio teams up again with the British watch design company to brig the trademark Bamtord touch</p>
+               </div>
+
+             </a>
+        
+<!-- 3 - Box -->
+              <a href="https://www.casio.com/content/casio/locales/in/en/brands/gshock/products/collection/limited/gma-s110be" target="_blank" class="card">
+
+               <div class="imgBox">
+                 <img src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/container_1790102794/content_panel_list/content_panel_202101_53407905/image.casiocoreimg.png/1755577378888/thesandbox.thumb.319.319.png"
+             alt="watch">
+               </div>
+
+               <div class="content">
+                 <h3>The Sandbox x VIRTUAL G-SHOCK</h3>
+                 <p>Time Travel</p>
+               </div>
+
+             </a>
+
+<!-- 4 - Box -->
+                <a href="https://www.casio.com/in/watches/casio-collection/vintage/AQ-230/" target="_blank" class="card">
+
+                 <div class="imgBox">
+                   <img src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/container_1790102794/content_panel_list/content_panel_202101_1044653567/image.casiocoreimg.jpeg/1756095752932/kv-main-nigo-1080x1080.jpeg"
+             alt="watch">
+                 </div>
+
+                 <div class="content">
+                   <h3>OGIN SPECIAL</h3>
+                   <p>G-SHOCK</p>
+                 </div>
+
+               </a>
+
+<!-- 5- Box -->
+
+               <a href="https://gshock.casio.com/in/products/collection/limited/almost-gods-x-g-shock/?_gl=1%2awm3pud%2a_ga%2aNTA3Mzc5OTcuMTc3ODQ3MTc3NQ..%2a_ga_DGD0L7D7HE%2aczE3Nzg3NzQ4OTkkbzEyJGcxJHQxNzc4Nzc4NDYxJGo2JGwwJGgw" target="_blank" class="card">
+
+                 <div class="imgBox">
+                   <img src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/container_1790102794/content_panel_list/content_panel_202101_1046480184/image.casiocoreimg.jpeg/1764326307521/thistime-1080x1080.jpeg"
+             alt="watch">
+                 </div>
+           
+                 <div class="content">
+                   <h3>THIS TIME MAGAZINE</h3>
+                   <p>Los Angeles issue</p>
+                 </div>
+
+               </a>
+
+<!-- 6 - Box -->
+
+               <a href="https://gshock.casio.com/in/products/analog-digital/gbm-2100/?_gl=1%2a19ufy7b%2a_ga%2aNTA3Mzc5OTcuMTc3ODQ3MTc3NQ..%2a_ga_DGD0L7D7HE%2aczE3Nzg3NzQ4OTkkbzEyJGcxJHQxNzc4Nzc4NDY3JGo2MCRsMCRoMA.." target="_blank" class="card">
+
+                 <div class="imgBox">
+                   <img src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/container_1790102794/content_panel_list/content_panel_202202_1657037992/image.casiocoreimg.jpeg/1740467835261/barbie-kv-sqr.jpeg"
+             alt="watch">
+                 </div>
+
+                 <div class="content">
+                   <h3>Barbie Collaboration Model</h3>
+                   <p>For a timely fashion icon, the Barbie collaboration watch</p>
+                 </div>
+
+               </a>
+
+<!-- 7- Box -->
+
+               <a href="https://gshock.casio.com/in/products/analog-digital/gm-2110d/?_gl=1%2a89z56q%2a_ga%2aNTA3Mzc5OTcuMTc3ODQ3MTc3NQ..%2a_ga_DGD0L7D7HE%2aczE3Nzg3NzQ4OTkkbzEyJGcxJHQxNzc4Nzc4NDk2JGozMSRsMCRoMA.." target="_blank" class="card">
+
+                 <div class="imgBox">
+                   <img src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/container_1790102794/content_panel_list/content_panel_202202_1828427755/image.casiocoreimg.jpeg/1739021164254/vint-vd-cis-800x800.jpeg"
+             alt="watch">
+                 </div>
+
+                 <div class="content">
+                   <h3>CASIO VINTAGE COLLECTION</h3>
+                   <p>VALENTINE DAY SPECIAL</p>
+                 </div>
+
+               </a>
+
+<!-- 8 - box -->
+
+               <a href="https://gshock.casio.com/in/products/analog-digital/110/gm-110/?_gl=1%2a1y3e9vd%2a_ga%2aNTA3Mzc5OTcuMTc3ODQ3MTc3NQ..%2a_ga_DGD0L7D7HE%2aczE3Nzg3NzQ4OTkkbzEyJGcxJHQxNzc4Nzc4NTA2JGoyMSRsMCRoMA.." target="_blank" class="card">
+
+                 <div class="imgBox">
+                   <img src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/container_1790102794/content_panel_list/content_panel_202202_1224708554/image.casiocoreimg.jpeg/1755498552302/gm-2110d-kv.jpeg"
+             alt="watch">
+                 </div>
+
+                 <div class="content">
+                   <h3>G-STEEL GM-211OD SERIES</h3>
+                   <p>Metallic gleam, in an octagonal bezal with a colorful dial and band</p>
+                 </div>
+
+               </a>
+
+<!-- 9 - Box -->
+
+               <a href="https://gshock.casio.com/in/contents/thistime/la/?_gl=1%2a1l10u3r%2a_ga%2aNTA3Mzc5OTcuMTc3ODQ3MTc3NQ..%2a_ga_DGD0L7D7HE%2aczE3Nzg3NzQ4OTkkbzEyJGcxJHQxNzc4Nzc4NTMwJGo2MCRsMCRoMA.." target="_blank" class="card">
+
+                 <div class="imgBox">
+                   <img src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/container_1790102794/content_panel_list/content_panel_202202_970986023/image.casiocoreimg.jpeg/1755498392637/gbm-2100a-1a2-kv.jpeg"
+             alt="watch">
+                 </div>
+
+                 <div class="content">
+                   <h3>GBM-2100 SERIES</h3>
+                   <p>Metal-clad daring meets sophisticated gleam in G-SHOCK watches with Tough Solar and Smartphone Link.</p>
+                 </div>
+
+               </a>
+
+<!-- 10 - Box -->
+                <a href="https://gshock.casio.com/in/contents/thistime/?_gl=1%2a14h0rli%2a_ga%2aNTA3Mzc5OTcuMTc3ODQ3MTc3NQ..%2a_ga_DGD0L7D7HE%2aczE3Nzg3NzQ4OTkkbzEyJGcxJHQxNzc4Nzc4NTY1JGoyNSRsMCRoMA.." target="_blank" class="card">
+
+                 <div class="imgBox">
+                   <img src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/container_1790102794/content_panel_list/content_panel_202202_220385310/image.casiocoreimg.jpeg/1733732241441/gm-110bb-1a-2000x2000-1.jpeg"
+             alt="watch">
+                 </div>
+
+                 <div class="content">
+                   <h3>G-STEEL GM-110 SERIES</h3>
+                   <p>Fresh new color, material and finishing, with the design identity of the GA-110 fully intact.</p>
+                 </div>
+
+               </a>
+               </div>
+
+    
+<hr>
+
+
+ <h2 class="title">PRODUCT CATEGORY</h2>
+
+   <div class="slider" id="slider">
+
+<!-- 1 -->
+            <a href="https://www.casio.com/in/watches/"  class="card">
+
+              <div class="imgBox">
+                <img src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/container_559207393/content_panel_list_c/content_panel_202207_1690410926/image.casiocoreimg.png/1722257063001/dw-5600bb-1-seq1.png"
+             alt="watch">
+              </div>
+
+              <div class="content">
+                <h3>Watches</h3>
+              </div>
+
+            </a>
+
+<!-- 2 -->
+            <a href="https://www.casio.com/in/watches/gshock/"  class="card">
+
+              <div class="imgBox">
+                <img src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/container_559207393/content_panel_list_c/content_panel_202207261408078954/image.casiocoreimg.jpeg/1722255094884/category-page-g-shock-ga-2100-1a1.jpeg"
+             alt="watch">
+              </div>
+
+              <div class="content">
+                <h3>G-SHOCK</h3>
+              </div>
+
+            </a>
+
+<!-- 3 -->
+              <a href="https://www.casio.com/in/watches/casio-collection/"  class="card">
+
+              <div class="imgBox">
+                <img src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/container_559207393/content_panel_list_c/content_panel_202208231347382905/image.casiocoreimg.jpeg/1731304466857/category-page-casio-collection-mtp-1302pd-9a.jpeg"
+             alt="watch">
+              </div>
+
+              <div class="content">
+                <h3>CASIO COLLECTION</h3>
+              </div>
+
+           </a>
+
+<!-- 4 -->
+
+            <a href="https://www.casio.com/in/watches/edifice/"  class="card">
+
+              <div class="imgBox">
+                <img src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/container_559207393/content_panel_list_c/content_panel_202208/image.casiocoreimg.jpeg/1722256441186/category-page-edifice-ecb-2000dc-1b.jpeg"
+             alt="watch">
+              </div>
+
+              <div class="content">
+                <h3>EDIFIC</h3>
+              </div>
+
+            </a>
+
+
+<!-- 5 -->
+
+              <a href="https://www.casio.com/in/scientific-calculators/"  class="card">
+
+                <div class="imgBox">
+                  <img src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/container_559207393/content_panel_list_c/content_panel_202207261403215923/image.casiocoreimg.png/1661243403786/fx-cg50-seq1.png"
+             alt="watch">
+                </div>
+
+                <div class="content">
+                  <h3>Scientic Calculator</h3>
+                </div>
+
+              </a>
+        
+<!-- 6 -->
+               <a href="https://www.casio.com/in/electronic-musical-instruments/"  class="card">
+
+                <div class="imgBox">
+                  <img src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/container_559207393/content_panel_list_c/content_panel_202207261403215922/image.casiocoreimg.png/1661243403835/px-s3100bk-01.png"
+             alt="watch">
+                </div>
+
+                <div class="content">
+                  <h3>Electronic Music Instruments</h3>
+                </div>
+
+              </a>
+
+<!-- 7 -->
+             <a href="https://www.casio.com/in/basic-calculators/"  class="card">
+
+              <div class="imgBox">
+                <img src="https://www.casio.com/content/casio/locales/in/en/products/_jcr_content/root/responsivegrid/container_559207393/content_panel_list_c/content_panel_202207261403215924/image.casiocoreimg.png/1661243403813/ms-20uc-bk-seq1.png"
+             alt="watch">
+              </div>
+
+              <div class="content">
+                <h3>Basic Calculators</h3>
+              </div>
+
+            </a>
+
+           </div>
+
+
+ <!--Priya  -->
+
+
+  <footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- TOP -->
+    <div class="footer-top">
+
+      <div class="footer-column">
+        <h3>Products</h3>
+        <a href="https://www.casio.com/in/products/">Products</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Customer Support</h3>
+        <a href="https://www.casio-intl.com/in/en/support/">Support</a>
+        
+      </div>
+
+      <div class="footer-column">
+        <h3>Corporate</h3>
+        <a href="https://world.casio.com/">Corporate</a>
+        <a href="https://www.casio.com/in/csr/">CSR</a>
+        
+      </div>
+
+      <div class="footer-column">
+        <h3>Warranty</h3>
+        <a href="https://www.casio-intl.com/in/en/support/warranties/duration/">Warranty</a>
+        
+      </div>
+
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="social-icons">
+      <i class="fa-brands fa-facebook-f"></i>
+      <i class="fa-brands fa-instagram"></i>
+      <i class="fa-brands fa-youtube"></i>
+      <i class="fa-brands fa-x-twitter"></i>
+      <i class="fa-brands fa-linkedin-in"></i>
+    </div>
+
+    <!-- LINKS -->
+    <div class="footer-links">
+
+      <div class="links-row">
+      <a href="https://www.casio.com/in/privacy/">Privacy Policy</a>
+      <a href="https://www.casio.com/in/labour_compliance/">Labour Compliance</a>
+      <a href="https://www.casio.com/content/dam/casio/local/in/secretarial/secretarial-redirect/MGT-7_.pdf">Secretarial(redirect)</a>
+      <a href="https://www.casio.com/content/dam/casio/local/in/secretarial/csr/CSR-Policy-V2.pdf">CSR Policy</a>
+      <a href="https://www.casio.com/in/cookie/">Cookie Policy</a>
+      <a href="https://www.casio.com/in/terms/">Terms of Use</a>
+      <a href="https://www.casio.com/in/sitemap/">Sitemap</a>
+
+      </div>
+      <div class="links-row">
+      <a href="https://www.casio-intl.com/in/en/support/contact/">Contact Us</a>
+      <a href="https://www.casio.com/in/csr/">CSR</a>
+
+      </div>
+      
+    </div>
+
+    <!-- COPYRIGHT -->
+
+
+    <div class="copyright">
+      <p>India</p>
+      <p>© 2026 Casio India Co. Pvt. Ltd.</p>
+    </div>
+
+    <!-- NOTE -->
+    <div class="footer-note">
+      <p><b>
+        Please help us recycle e-waste and plastic waste responsibly.
+      </b></p>
+
+      <p><b>
+        For more information or e-waste pick up call 1800 2022746 or
+        <a href="https://www.casio.com/content/dam/casio/local/in/products/label/product-disposal-guidelines/Product_Disposal_Guidelines_Casio_202212.pdf">Click here</a>
+        for more details.
+        </b></p>
+    </div>
+
+  </div>
+  </div>
+
+</footer>
+
+   
+    <script src="script.js"></script>
+</body>
+</html>
